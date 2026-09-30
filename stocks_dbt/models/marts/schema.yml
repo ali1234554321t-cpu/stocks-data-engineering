@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: fct_stock_market
+    description: "Clean stock market data prepared for analytics and BI."
+
+    columns:
+      - name: SYMBOL
+        description: "Stock ticker symbol."
+        tests:
+          - not_null
+
+      - name: EVENT_TIME
+        description: "Market event timestamp."
+        tests:
+          - not_null
+
+      - name: PRICE
+        description: "Current stock price."
+        tests:
+          - not_null
+
+      - name: PRICE_DIRECTION
+        description: "Direction of the stock price movement."
+        tests:
+          - not_null
+
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - SYMBOL
+              - EVENT_TIME

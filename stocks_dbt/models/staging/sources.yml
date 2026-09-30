@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: stock_market
+    database: STOCK_MARKET_DB
+    schema: RAW
+
+    tables:
+      - name: stock_prices
+
+      - name: stock_prices_history
